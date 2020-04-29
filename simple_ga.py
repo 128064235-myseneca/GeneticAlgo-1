@@ -149,3 +149,5 @@ if __name__ == '__main__':
             break
         j += 1
         # print(len(pop))
+
+        testing
