@@ -47,7 +47,7 @@ def fitness(pop, ft, strlen):
             if (text[i] == ft[i]):
                 count = count+1
                 # print(pop[text])
-        pop[text] = (count * count)/(strlen*strlen)
+        pop[text] = count * count
         # print("c:",cn)
     # print(len(pop))
     # print(pop)
@@ -117,7 +117,7 @@ def mutation(n, text):
 
 if __name__ == '__main__':
     popSize = 500
-    text = "to be or not to be"
+    text = "hello shubham"
     strlen = len(text)
     pop = createPopulation(popSize, strlen)
 
@@ -142,7 +142,7 @@ if __name__ == '__main__':
         m = max(pop.values())
         for x in pop.keys():
             if m == pop[x]:
-                print("fittest ", x, " fitness value ",m)
+                print("fittest ", x, " fitness value ",(m/(strlen*strlen))*100)
                 break
         if(text in pop.keys()):
             print("found in ", j, " generation")
