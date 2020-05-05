@@ -135,7 +135,6 @@ if __name__ == '__main__':
         for i in range(round(popSize)):
             first, second = selectParent(pool)
             firstChild= crossover(first, second, strlen)
-
             temp = {firstChild:0}
             pop.update(temp)
         pop = fitness(pop, text, strlen)
