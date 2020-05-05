@@ -29,7 +29,7 @@ def createPopulation(number,strlen):
     pop = {}
     for i in range(number):
         temp = randomString(strlen)
-        tempDict = {temp:0}
+        tempDict = {temp: 0}
         pop.update(tempDict)
     return pop
 
@@ -53,7 +53,7 @@ def fitness(pop, ft, strlen):
             if (text[i] == ft[i]):
                 count = count+1
 
-        pop[text] = round(((count * count) / (strlen * strlen)) * 100)
+        pop[text] = round(((count * count * count) / (strlen * strlen * strlen)) * 100)
     return pop
 
 
@@ -81,16 +81,16 @@ def selectParent(pool):
     :return:
     """
     total = len(pool)
-    x=random.randint(0,total-1)
+    x = random.randint(0,total-1)
     y = random.randint(0, total-1)
     firstParent = pool[x]
     secondParent = pool[y]
-    return firstParent,secondParent
+    return firstParent, secondParent
 
 
 
 
-def crossover(first, second,strlen):
+def crossover(first,second,strlen):
     """
 
     :param first:
@@ -127,7 +127,7 @@ def mutation(n, text):
 if __name__ == '__main__':
 
     popSize = 500
-    text = "to be or not to be"
+    text = "hello"
     strlen = len(text)
     pop = createPopulation(popSize, strlen)
 
@@ -151,7 +151,7 @@ if __name__ == '__main__':
         m = max(pop.values())
         for x in pop.keys():
             if m == pop[x]:
-                print("fittest ", x, " fitness value ", (m)*100)
+                print("fittest ", x, " fitness value ", m)
                 break
         if text in pop.keys():
             print("found in ", j, " generation")
